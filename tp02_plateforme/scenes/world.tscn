@@ -1,24 +1,72 @@
-[gd_scene load_steps=3 format=3 uid="uid://c766fl78o0cjk"]
+[gd_scene format=3 uid="uid://c766fl78o0cjk"]
 
 [ext_resource type="PackedScene" uid="uid://co806t5p15df4" path="res://scenes/player.tscn" id="1_nnsk1"]
+[ext_resource type="Texture2D" uid="uid://d0vyir417rq4t" path="res://assets/sprites/Background/Background-1.png" id="2_rwgxs"]
+[ext_resource type="Texture2D" uid="uid://ckvvp2i438t1" path="res://assets/sprites/Background/Background-3.png" id="3_4wyf3"]
+[ext_resource type="Texture2D" uid="uid://ce7beyoi2xnrw" path="res://assets/sprites/Background/Background-2.png" id="4_k0juu"]
+[ext_resource type="Texture2D" uid="uid://f8vc1l3cg6w2" path="res://assets/sprites/Background/Background-4.png" id="5_71j4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3sb7"]
 size = Vector2(600, 18)
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" unique_id=1853444388]
 
-[node name="Player" parent="." instance=ExtResource("1_nnsk1")]
+[node name="Player" parent="." unique_id=98957988 instance=ExtResource("1_nnsk1")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1425198110]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1743367160]
 
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1325388054]
 offset_left = -54.0
 offset_top = 5.0
 offset_right = 546.0
 offset_bottom = 23.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=669701921]
 position = Vector2(246, 14)
 shape = SubResource("RectangleShape2D_f3sb7")
+
+[node name="Decor" type="Node2D" parent="." unique_id=2014149002]
+z_index = -10
+
+[node name="Ciel" type="Parallax2D" parent="Decor" unique_id=1670096083]
+scroll_scale = Vector2(0.1, 0)
+repeat_size = Vector2(672, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Ciel" unique_id=1033409935]
+position = Vector2(0, -144)
+scale = Vector2(2, 2)
+texture = ExtResource("2_rwgxs")
+centered = false
+
+[node name="Nuages" type="Parallax2D" parent="Decor" unique_id=1405753422]
+scroll_scale = Vector2(0.3, 0)
+repeat_size = Vector2(672, 0)
+autoscroll = Vector2(-10, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Nuages" unique_id=1262272931]
+position = Vector2(0, -144)
+scale = Vector2(2, 2)
+texture = ExtResource("3_4wyf3")
+centered = false
+
+[node name="Mer" type="Parallax2D" parent="Decor" unique_id=1032805697]
+scroll_scale = Vector2(0.5, 0)
+repeat_size = Vector2(672, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Mer" unique_id=1332410037]
+position = Vector2(0, -144)
+scale = Vector2(2, 2)
+texture = ExtResource("4_k0juu")
+centered = false
+
+[node name="Iles" type="Parallax2D" parent="Decor" unique_id=662479177]
+scroll_scale = Vector2(0.7, 0)
+repeat_size = Vector2(672, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Decor/Iles" unique_id=1370948150]
+position = Vector2(0, -144)
+scale = Vector2(2, 2)
+texture = ExtResource("5_71j4m")
+centered = false
